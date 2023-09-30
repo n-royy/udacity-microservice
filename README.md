@@ -29,4 +29,4 @@ These software must be installed in your machine
 
 ## CircleCI screenshot
 
-![Passed](images/CircleCI-Lint.png)
+![Passed](images/CircleCI-Lint.PNG)
