@@ -1,1 +1,8 @@
-<paste log output from Kubernetes-mediated prediction, here>
+(venv) PS E:\CICD\Cloud Devops Engineer\AWS\Project4\udacity-microservice> kubectl get pods
+NAME                   READY   STATUS    RESTARTS   AGE
+udacity-microservice   1/1     Running   0          12m
+(venv) PS E:\CICD\Cloud Devops Engineer\AWS\Project4\udacity-microservice> kubectl port-forward pods/udacity-microservice 8080:80
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+Handling connection for 8080
+Handling connection for 8080
