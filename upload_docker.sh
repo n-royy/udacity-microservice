@@ -5,11 +5,14 @@
 
 # Step 1:
 # Create dockerpath
-# dockerpath=<your docker ID/path>
+dockerpath=n-royy/udacity-microservice
 
 # Step 2:  
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
+echo "Login docker..."
+echo $DOCKER_PASSWORD | docker login -u "namnn10" --password-stdin docker.io
 
 # Step 3:
 # Push image to a docker repository
+docker push $dockerpath
