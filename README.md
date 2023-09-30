@@ -1,50 +1,32 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/n-royy/udacity-microservice/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/n-royy/udacity-microservice/tree/main)
 
-## Project Overview
+## Prerequisites
 
-In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
+These software must be installed in your machine
 
-You are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
+1. Docker
+1. K8s
 
-### Project Tasks
+## Run docker on local
 
-Your project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. In this project you will:
-* Test your project code using linting
-* Complete a Dockerfile to containerize this application
-* Deploy your containerized application using Docker and make a prediction
-* Improve the log statements in the source code for this application
-* Configure Kubernetes and create a Kubernetes cluster
-* Deploy a container using Kubernetes and make a prediction
-* Upload a complete Github repo with CircleCI to indicate that your code has been tested
+1. Change dockerpath in file ./run_docker.sh base on your credentials
+1. Run run_docker.sh to build and run docker file
+   > ./run_docker.sh
 
-You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
+## Push docker image to dockerhub
 
-**The final implementation of the project will showcase your abilities to operationalize production microservices.**
+1. Change dockerpath in file ./upload_docker.sh
+1. Export your docker hub password to system environment
+   > export DOCKER_PASSWORD=<YOUR_PASSWORD>
+1. run upload_docker.sh to upload to dockerhub with your tag
+   > ./upload_docker.sh
 
----
+## Run with k8s
 
-## Setup the Environment
+1. Change dockerpath in file run_kubernetes.sh
+1. Run run_kubernetes.sh
+   > ./run_kubernetes.sh
 
-* Create a virtualenv with Python 3.7 and activate it. Refer to this link for help on specifying the Python version in the virtualenv. 
-```bash
-python3 -m pip install --user virtualenv
-# You should have Python 3.7 available in your host. 
-# Check the Python path using `which python3`
-# Use a command similar to this one:
-python3 -m virtualenv --python=<path-to-Python3.7> .devops
-source .devops/bin/activate
-```
-* Run `make install` to install the necessary dependencies
+## CircleCI screenshot
 
-### Running `app.py`
-
-1. Standalone:  `python app.py`
-2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
-
-### Kubernetes Steps
-
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
-* Create Flask app in Container
-* Run via kubectl
+![Passed](images/CircleCI-Lint.png)
